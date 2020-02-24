@@ -4,7 +4,7 @@ const express = require('express')
 const logger = require('morgan')
 const cors = require('cors')
 const compression = require('compression')
-const errorhandler = require('errorhandler')
+// const errorhandler = require('errorhandler')
 const bodyParser = require('./body-parser')
 
 module.exports = function(opts) {
@@ -26,10 +26,11 @@ module.exports = function(opts) {
     arr.push(cors({ origin: true, credentials: true }))
   }
 
-  if (process.env.NODE_ENV === 'development') {
+  /* if (process.env.NODE_ENV === 'development') {
     // only use in development
     arr.push(errorhandler())
   }
+  */
 
   // Serve static files
   arr.push(express.static(opts.static))
